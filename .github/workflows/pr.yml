@@ -22,7 +22,7 @@ jobs:
 
             - name: Run Black Check
               run: |
-                black
+                black .
 
             - name: Run PyTest
               run: |
