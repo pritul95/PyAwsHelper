@@ -3,7 +3,7 @@ Python AWS Helper Library
 
 
 ## AWS Region Helper
-Get AWS region from region suffix
+### Get AWS region from region suffix
 
 ```python
 from PyAwsHelper.region import Region
@@ -24,7 +24,7 @@ aws_region = Region.get_region("foo", default_region="bar")
 'bar'
 ```
 
-Get region suffix from AWS region
+### Get region suffix from AWS region
 ```python
 from PyAwsHelper.region import Region
 
