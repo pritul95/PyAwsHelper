@@ -4,29 +4,32 @@
 AWS Region Helper
 """
 CONFIG = {
-    "hk": "ap-east-1",
-    "tk": "ap-northeast-1",
-    "se": "ap-northeast-2",
-    "os": "ap-northeast-3",
-    "mu": "ap-south-1",
-    "sg": "ap-southeast-1",
-    "sy": "ap-southeast-2",
-    "ce": "ca-central-1",
-    "be": "cn-north-1",
-    "ni": "cn-northwest-1",
-    "fr": "eu-central-1",
-    "st": "eu-north-1",
-    "ir": "eu-west-1",
-    "lo": "eu-west-2",
-    "pa": "eu-west-3",
-    "ba": "me-south-1",
-    "sp": "sa-east-1",
-    "va": "us-east-1",
+    "hk": "ap-east-1",  # Hong Kong
+    "tk": "ap-northeast-1",  # Tokyo
+    "se": "ap-northeast-2",  # Seoul
+    "os": "ap-northeast-3",  # Osaka-Local
+    "mu": "ap-south-1",  # Mumbai
+    "sg": "ap-southeast-1",  # Singapore
+    "sy": "ap-southeast-2",  # Sydney
+    "au": "ap-southeast-2",  # Sydney
+    "ce": "ca-central-1",  # Central
+    "be": "cn-north-1",  # Beijing
+    "ni": "cn-northwest-1",  # Ningxia
+    "fr": "eu-central-1",  # Frankfurt
+    "st": "eu-north-1",  # Stockholm
+    "ir": "eu-west-1",  # Ireland
+    "lo": "eu-west-2",  # London
+    "pa": "eu-west-3",  # Paris
+    "ba": "me-south-1",  # Bahrain
+    "sp": "sa-east-1",  # São Paulo
+    "va": "us-east-1",  # N. Virginia
     "va-gov": "us-gov-east-1",
-    "oh": "us-east-2",
-    "ca": "us-west-1",
+    "oh": "us-east-2",  # Ohio
+    "ca": "us-west-1",  # N. California
+    "nc": "us-west-1",  # N. California
     "ca-gov": "us-gov-west-1",
-    "or": "us-west-2",
+    "nc-gov": "us-gov-west-1",
+    "or": "us-west-2",  # Oregon
 }
 
 
