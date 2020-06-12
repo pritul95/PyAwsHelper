@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("version") as f:
+    version = f.read().strip()
+
 setuptools.setup(
     name="PyAwsHelper",
-    version="0.0.1",
+    version=version,
     author="Ritul Patel",
     author_email="author@example.com",
     description="Python AWS Helper Library",
