@@ -102,5 +102,5 @@ class BotoSession:
 
             return autorefresh_session, True
 
-        except:
+        except:  # noqa: E722
             return Session(), False

@@ -81,9 +81,7 @@ class BotoHelper:
         """
         session, is_refreshable = None, False
         if self.sessions:
-            session: Session = self.sessions.get(
-                "role_arn"
-            ) if role_arn else self.sessions["default"]
+            session = self.sessions.get("role_arn", self.sessions.get("default"))
             if session:
                 return session, True
 
