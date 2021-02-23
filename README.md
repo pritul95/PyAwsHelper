@@ -3,6 +3,31 @@ Python AWS Helper Library
 
 
 ## AWS Region Helper
+### Get Boto3 Client and Resource with refreshable session
+```python
+from PyAwsHelper.boto_helper import BotoHelper
+
+helper = BotoHelper()
+
+# Both client is sharing common refreshable session
+s3_client = helper.get_client(service_name="s3", region_name="us-east-1", role_arn="arn:aws:iam::123:role/my_db_role")
+
+db_client = helper.get_client(service_name="dynamodb", region_name="us-east-1", role_arn="arn:aws:iam::123:role/my_db_role")
+```
+
+### Use Raw Refreshable session to implement your need
+```python
+# can use BotoHelper to get session
+from PyAwsHelper.boto_helper import BotoHelper
+helper = BotoHelper()
+s3_client = helper.get_session(region_name="us-east-1", role_arn="arn:aws:iam::123:role/my_db_role")
+
+# or can directly access raw BotoSession module
+from PyAwsHelper.boto_session import BotoSession
+session = BotoSession().refreshable_session()
+client = session.client("s3") # we now can cache this client object without worrying about expiring credentials
+```
+
 ### Get AWS region from region suffix
 
 ```python
