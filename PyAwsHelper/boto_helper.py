@@ -92,7 +92,7 @@ class BotoHelper:
         LOG.debug(f"Getting session region_name={region_name} role_arn={role_arn}")
         session, is_refreshable = None, False
         if self.sessions:
-            session = self.sessions.get("role_arn", self.sessions.get("default"))
+            session = self.sessions.get(role_arn, self.sessions.get("default"))
             if session:
                 LOG.debug(
                     f"Using cached session for region_name={region_name} role_arn={role_arn}"
