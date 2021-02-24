@@ -62,7 +62,7 @@ class BotoSession:
 
         # if sts_arn is given, get credential by assuming given role
         if self.sts_arn:
-            sts_client = session.client(self.service_name, region_name=self.region_name)
+            sts_client = session.client("sts", region_name=self.region_name)
             response = sts_client.assume_role(
                 RoleArn=self.role_arn,
                 RoleSessionName=self.session_name,
@@ -108,7 +108,7 @@ class BotoSession:
             return autorefresh_session, True
 
         except Exception as ex:
-            LOG.debug(
+            LOG.error(
                 f"Got an exception when creating refreshable credentials! ex={ex}"
             )
             return Session(), False
