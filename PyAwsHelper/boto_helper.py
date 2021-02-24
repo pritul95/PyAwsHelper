@@ -1,3 +1,4 @@
+import logging
 from os import getenv
 from threading import RLock
 from typing import Dict, Tuple
@@ -5,6 +6,9 @@ from typing import Dict, Tuple
 from boto3 import Session
 
 from PyAwsHelper.boto_session import BotoSession
+
+LOG = logging.getLogger("PyAwsHelper")
+LOG.setLevel(logging.ERROR)
 
 
 class BotoHelper:
@@ -49,6 +53,9 @@ class BotoHelper:
         role_arn : str (optional)
             The role arn to sts before creating session.
         """
+        LOG.debug(
+            f"Getting client service_name={service_name} region_name={region_name} role_arn={role_arn}"
+        )
         session, _ = self.get_session(region_name=region_name, role_arn=role_arn)
 
         return session.client(
@@ -69,6 +76,9 @@ class BotoHelper:
         role_arn : str (optional)
             The role arn to sts before creating session.
         """
+        LOG.debug(
+            f"Getting resource service_name={service_name} region_name={region_name} role_arn={role_arn}"
+        )
         session, _ = self.get_session(region_name=region_name, role_arn=role_arn)
 
         return session.resource(
@@ -79,10 +89,14 @@ class BotoHelper:
         """
         Get refreshable session from BotoSession
         """
+        LOG.debug(f"Getting session region_name={region_name} role_arn={role_arn}")
         session, is_refreshable = None, False
         if self.sessions:
             session = self.sessions.get("role_arn", self.sessions.get("default"))
             if session:
+                LOG.debug(
+                    f"Using cached session for region_name={region_name} role_arn={role_arn}"
+                )
                 return session, True
 
         if role_arn:
