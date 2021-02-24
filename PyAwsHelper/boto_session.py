@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 from time import time
 from typing import Tuple
@@ -6,6 +7,9 @@ from uuid import uuid4
 from boto3 import Session
 from botocore.credentials import RefreshableCredentials
 from botocore.session import get_session
+
+LOG = logging.getLogger("PyAwsHelper")
+LOG.setLevel(logging.ERROR)
 
 
 class BotoSession:
@@ -87,6 +91,7 @@ class BotoSession:
         Get refreshable boto3 session.
         """
         try:
+            LOG.debug("Creating refreshable credentials!")
             # get refreshable credentials
             refreshable_credentials = RefreshableCredentials.create_from_metadata(
                 metadata=self.__get_session_credentials(),
@@ -102,5 +107,8 @@ class BotoSession:
 
             return autorefresh_session, True
 
-        except:  # noqa: E722
+        except Exception as ex:
+            LOG.debug(
+                f"Got an exception when creating refreshable credentials! ex={ex}"
+            )
             return Session(), False
