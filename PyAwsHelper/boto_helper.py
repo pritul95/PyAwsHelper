@@ -85,7 +85,9 @@ class BotoHelper:
             service_name=service_name, region_name=region_name, **kwargs
         )
 
-    def get_session(self, region_name: str, role_arn: str = None) -> Tuple[Session, bool]:
+    def get_session(
+        self, region_name: str, role_arn: str = None
+    ) -> Tuple[Session, bool]:
         """
         Get refreshable session from BotoSession
         """
