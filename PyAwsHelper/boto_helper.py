@@ -106,7 +106,7 @@ class BotoHelper:
                 region_name=region_name, ttl=BotoHelper.TTL, sts_arn=role_arn
             ).refreshable_session()
         else:
-            session, is_refreshable = Session(), False
+            session, is_refreshable = Session(region_name=region_name), False
 
         if role_arn and is_refreshable:
             self.sessions[role_arn] = session
