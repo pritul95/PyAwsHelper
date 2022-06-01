@@ -22,7 +22,7 @@ class BotoHelper:
 
     # check for max session duration
     # https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session
-    TTL = int(getenv("PyAwsHelper.BotoHelper.TTL", 900))
+    TTL = int(getenv("PyAwsHelper_BotoHelper_TTL", 900))
 
     def __init__(self):
         self.__sessions = {}
@@ -85,7 +85,7 @@ class BotoHelper:
             service_name=service_name, region_name=region_name, **kwargs
         )
 
-    def get_session(self, region_name: str, role_arn: None) -> Tuple[Session, bool]:
+    def get_session(self, region_name: str, role_arn: str = None) -> Tuple[Session, bool]:
         """
         Get refreshable session from BotoSession
         """
