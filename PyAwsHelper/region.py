@@ -9,6 +9,7 @@ CONFIG = {
     "se": "ap-northeast-2",  # Seoul
     "os": "ap-northeast-3",  # Osaka-Local
     "mu": "ap-south-1",  # Mumbai
+    "hy": "ap-south-2",  # Hyderabad
     "sg": "ap-southeast-1",  # Singapore
     "sy": "ap-southeast-2",  # Sydney
     "au": "ap-southeast-2",  # Sydney
@@ -30,6 +31,8 @@ CONFIG = {
     "ca-gov": "us-gov-west-1",
     "nc-gov": "us-gov-west-1",
     "or": "us-west-2",  # Oregon
+    "uae": "me-central-1",  # UAE
+    "ct": "af-south-1",  # Cape Town
 }
 
 
